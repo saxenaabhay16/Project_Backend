@@ -1,0 +1,2615 @@
+{
+	"info": {
+		"_postman_id": "446468a5-924a-43bf-8e9c-66bced56853c",
+		"name": "Backend-project-nodejs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16274770",
+		"_collection_link": "https://crimson-moon-523564.postman.co/workspace/Dheeraj~954de436-c980-4079-8e98-aa741466763e/collection/16274770-446468a5-924a-43bf-8e9c-66bced56853c?action=share&source=collection_link&creator=16274770"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "User-Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"neelu2812\",\r\n    \"password\":\"Neelu2812@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid-password-401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"neeraj0912\",\r\n    \"password\":\"invalid-password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-iHGTIv7noT3UMayYgBivAszwTgE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 05:13:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid username or password\"\n}"
+						},
+						{
+							"name": "correct-password-200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"neeraj0912\",\r\n    \"password\":\"neeraj123@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-HamrEM4Nq+kbXJkHH0Fqn+5xSGg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 05:14:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY4MTk3NzVlMzdhY2QwYTA4OGFjMTEiLCJpYXQiOjE3MDEzMjEyNTIsImV4cCI6MTcwMTMyNDg1Mn0.JWPh-BwT3f851qkhj0vGOIkp5_62ymmRniiiKKbez4Q\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User-Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY4OThkYjhiZTRhZTE0MjkzYThiY2YiLCJpYXQiOjE3MDEzNTM3OTUsImV4cCI6MTcwMTM1NzM5NX0.8XUs9vKECXLdmJwId4_xVg5qfe5fbHlxy5K1DWkAr3M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout-200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY4MTk3NzVlMzdhY2QwYTA4OGFjMTEiLCJpYXQiOjE3MDEzMjEyNTIsImV4cCI6MTcwMTMyNDg1Mn0.JWPh-BwT3f851qkhj0vGOIkp5_62ymmRniiiKKbez4Q\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-vYmtThEV0qgPmOaoi5WLoJuDA80\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 05:26:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logout successful\"\n}"
+						},
+						{
+							"name": "same-token-400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY4MmQ4NWRjMTBlNDFiNDU2ZmJhNmIiLCJpYXQiOjE3MDEzMjYyOTgsImV4cCI6MTcwMTMyOTg5OH0.WNLBXRZ3heQBFSJxl1dF4gZZ_-TDk0eMbzgY9d_J5XE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-eJuCWMERor20giJVpWJiKrWEoMw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 07:32:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Token is already blacklisted\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Post man collection for User Authentication apis"
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Register-User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Neelu Gupta\",\r\n    \"username\":\"neelu2812\",\r\n    \"password\":\"Neelu123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create-new-user-201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Neeraj Gupta\",\r\n    \"username\":\"neeraj0912\",\r\n    \"password\":\"neeraj123@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-nMoFx54+czTntmSLXl3mqIsZV4A\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 05:11:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update-password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"neelu2812\",\r\n    \"currentPassword\":\"Neelu123@\",\r\n    \"newPassword\":\"Neelu2812@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/update/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"update",
+								"password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update-password-200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"dheeraj2897\",\r\n    \"currentPassword\":\"dheeraj123@\",\r\n    \"newPassword\":\"Dheeraj2897@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/update/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"update",
+										"password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-BcqZXnJsIxPWaT5KqbeKFU83Xws\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 06:52:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password changed successfully\"\n}"
+						},
+						{
+							"name": "invalid-password-401",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"dheeraj2897\",\r\n    \"currentPassword\":\"invalid-password\",\r\n    \"newPassword\":\"Dheeraj2897@\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/update/password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"update",
+										"password"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-4zh/KMTzc3V6nsAgZ7MqpifVnaI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 06:54:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid current password\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/neelu2812",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"neelu2812"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getUserByusername-200 -response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/dheeraj2897",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"dheeraj2897"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-j6iqBI+7EO7MI4sDJZubZEEam8Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 07:40:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"656830efa16acbcf46a0b7a2\",\n    \"name\": \"Dheeraj Gupta\",\n    \"createdAt\": \"2023-11-30T06:51:27.815Z\",\n    \"updateAt\": \"2023-11-30T07:33:41.953Z\"\n}"
+						},
+						{
+							"name": "invalid-username-404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/dheeraj28",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"dheeraj28"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-cy0v3A27YmS4y4rcpkF6BmDhVCY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 07:42:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid dheeraj28 Please provide valid userId\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-user-by-username",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/dheeraj2809",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"dheeraj2809"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user-not-found-404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/dheeraj2809",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"dheeraj2809"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-hq/hT0ORGTkTfyRpVCZ/JB/r8Eg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 08:04:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User not found\"\n}"
+						},
+						{
+							"name": "user-delete-success-200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users/neelu2812",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"neelu2812"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-YVZtia1fMrdq3TD2LazkFon5ZiU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 08:09:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User with ID neelu2812 deleted successfully.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-users",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "success-scenario-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "406"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"196-viky5+7obss0dmmBGb0qf/iLhAo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 18:40:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"656842d02b33ab9db9e8e66b\",\n        \"name\": \"Dheeraj Gupta\",\n        \"createdAt\": \"2023-11-30T08:07:44.301Z\",\n        \"updatedAt\": \"2023-11-30T10:27:40.696Z\"\n    },\n    {\n        \"_id\": \"656842e62b33ab9db9e8e66d\",\n        \"name\": \"Neeraj Gupta\",\n        \"createdAt\": \"2023-11-30T08:08:06.577Z\",\n        \"updatedAt\": \"2023-11-30T10:30:31.293Z\"\n    },\n    {\n        \"_id\": \"6568cf38d5d411fd4dd1d7c0\",\n        \"name\": \"Neelu Gupta\",\n        \"createdAt\": \"2023-11-30T18:06:48.083Z\",\n        \"updatedAt\": \"2023-11-30T18:06:56.094Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post-Related-apis",
+			"item": [
+				{
+					"name": "create-new-post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"6568cf38d5d411fd4dd1d7c0\",\r\n  \"title\": \"Neelu post 1\",\r\n  \"body\": \"Beneath twilight's embrace, nature whispers tales. Stars twinkle, weaving dreams. Moonlight dances, painting a tranquil symphony on night's canvas.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/createNewPost",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"createNewPost"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "new-post-200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"656842d02b33ab9db9e8e66b\",\r\n    \"title\": \"Dheeraj post title 1\",\r\n    \"body\": \"In a quiet forest, a wise owl hoots softly as moonlight filters through the trees. Leaves rustle, and a mysterious rustling emerges. Whispers of ancient tales echo. Unseen creatures dance in the shadows, creating an enchanting spectacle. Nature's secrets unfold in the tranquil night, leaving the world captivated by its magic.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/createNewPost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"createNewPost"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-LCJG1UjcemeTQSrQaDRfZUyOw14\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 10:34:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Post saved successfully\"\n}"
+						},
+						{
+							"name": "invalid-userid-post-500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"invlaid-user-id\",\r\n    \"title\": \"Dheeraj post title 1\",\r\n    \"body\": \"In a quiet forest, a wise owl hoots softly as moonlight filters through the trees. Leaves rustle, and a mysterious rustling emerges. Whispers of ancient tales echo. Unseen creatures dance in the shadows, creating an enchanting spectacle. Nature's secrets unfold in the tranquil night, leaving the world captivated by its magic.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/createNewPost",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"createNewPost"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9b-KO5Rusy/4F8fsqdXckqkQRcwexE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 10:36:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Post validation failed: userId: Cast to ObjectId failed for value \\\"invlaid-user-id\\\" (type string) at path \\\"userId\\\" because of \\\"BSONError\\\"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update-post-by-postid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Neelu post 1 updated\",\r\n  \"body\": \"Beneath twilight's embrace, nature whispers tales. Stars twinkle, weaving dreams. Moonlight dances, painting a tranquil symphony on night's canvas.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/update/6568cfb8d5d411fd4dd1d7c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"update",
+								"6568cfb8d5d411fd4dd1d7c7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update-success-200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Dheeraj post title 1 updated\",\r\n    \"body\": \"Beneath the starry sky, a river whispers secrets, reflecting tales of forgotten realms. Nature's ballet enchants, harmonizing life's ephemeral dance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/update/6568654eb6337331b167eec5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"update",
+										"6568654eb6337331b167eec5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-SEUKpcN5PCksR9PRlF2921gLn1o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 10:55:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Post with id:6568654eb6337331b167eec5 successfully updated.\"\n}"
+						},
+						{
+							"name": "invalid-post-id-500",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Dheeraj post title 1 updated\",\r\n    \"body\": \"Beneath the starry sky, a river whispers secrets, reflecting tales of forgotten realms. Nature's ballet enchants, harmonizing life's ephemeral dance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/posts/update/invalid-post-id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"update",
+										"invalid-post-id"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oekfIhcmMRg4rsKnu01XO8xGUBI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 10:56:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"input must be a 24 character hex string, 12 byte Uint8Array, or an integer\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-post-postid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/6568cfb8d5d411fd4dd1d7c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"6568cfb8d5d411fd4dd1d7c7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-post-by-postid-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/6568654eb6337331b167eec5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"6568654eb6337331b167eec5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "354"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"162-MqcE572iJBVW17B7MpZ7aGQt67g\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:10:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6568654eb6337331b167eec5\",\n    \"title\": \"Dheeraj post title 1 updated\",\n    \"body\": \"Beneath the starry sky, a river whispers secrets, reflecting tales of forgotten realms. Nature's ballet enchants, harmonizing life's ephemeral dance.\",\n    \"userId\": \"656842d02b33ab9db9e8e66b\",\n    \"createdAt\": \"2023-11-30T10:34:54.969Z\",\n    \"updatedAt\": \"2023-11-30T10:53:15.840Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "invalid-postid-500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/invalid-post-id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"invalid-post-id"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oekfIhcmMRg4rsKnu01XO8xGUBI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:11:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"input must be a 24 character hex string, 12 byte Uint8Array, or an integer\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-posts-by-userid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/user/6568cf38d5d411fd4dd1d7c0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"user",
+								"6568cf38d5d411fd4dd1d7c0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all-post-userid-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/user/656842d02b33ab9db9e8e66b",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"user",
+										"656842d02b33ab9db9e8e66b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1060"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"424-oFU0/BeExZl4FlU6J87k3h9hUnM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:15:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6568654eb6337331b167eec5\",\n        \"title\": \"Dheeraj post title 1 updated\",\n        \"body\": \"Beneath the starry sky, a river whispers secrets, reflecting tales of forgotten realms. Nature's ballet enchants, harmonizing life's ephemeral dance.\",\n        \"userId\": \"656842d02b33ab9db9e8e66b\",\n        \"createdAt\": \"2023-11-30T10:34:54.969Z\",\n        \"updatedAt\": \"2023-11-30T10:53:15.840Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"65686ae777454a9dfe8080bc\",\n        \"title\": \"Dheeraj post title 2\",\n        \"body\": \"Beneath the starry sky, a river whispers secrets, reflecting tales of forgotten realms. Nature's ballet enchants, harmonizing life's ephemeral dance.\",\n        \"userId\": \"656842d02b33ab9db9e8e66b\",\n        \"createdAt\": \"2023-11-30T10:58:47.199Z\",\n        \"updatedAt\": \"2023-11-30T10:58:47.199Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"65686b0477454a9dfe8080be\",\n        \"title\": \"Dheeraj post title 3\",\n        \"body\": \"In the heart of a bustling city, neon lights flicker as a lone musician serenades the night. Shadows dance to the rhythm, creating a symphony of urban stories.\",\n        \"userId\": \"656842d02b33ab9db9e8e66b\",\n        \"createdAt\": \"2023-11-30T10:59:16.826Z\",\n        \"updatedAt\": \"2023-11-30T10:59:16.826Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "invalid-user-id-500",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/user/invalid-user-id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"user",
+										"invalid-user-id"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oekfIhcmMRg4rsKnu01XO8xGUBI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:15:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"input must be a 24 character hex string, 12 byte Uint8Array, or an integer\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-by-postid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/invalid-postid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"invalid-postid"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-post-by-postid-200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/65686f41ce13481f8f1cec95",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"65686f41ce13481f8f1cec95"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-qclCU9xtHPJAAVxLaRhVaJSxdOc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:24:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Post with ID 65686f41ce13481f8f1cec95 deleted successfully.\"\n}"
+						},
+						{
+							"name": "invalid-post-id-500",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/posts/invalid-postid",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"posts",
+										"invalid-postid"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oekfIhcmMRg4rsKnu01XO8xGUBI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 11:25:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"input must be a 24 character hex string, 12 byte Uint8Array, or an integer\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comment-Related-apis",
+			"item": [
+				{
+					"name": "comment-on-post-by-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentMsg\": \"Your enchanting words illuminate a nocturnal masterpiece, echoing the poetry of nature. A celestial dance captured with grace and elegance.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66b/post/6568cfb8d5d411fd4dd1d7c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"user",
+								"656842d02b33ab9db9e8e66b",
+								"post",
+								"6568cfb8d5d411fd4dd1d7c7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "comment-on-post-200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Captivating prose! Your words dance with brilliance, painting vivid landscapes of imagination. A literary masterpiece that resonates with timeless elegance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66b/post/65686bd977454a9dfe8080c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"656842d02b33ab9db9e8e66b",
+										"post",
+										"65686bd977454a9dfe8080c6"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f-oZ2yrb1LpmhXkhOmk8I+TBhogWI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 15:49:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Comment saved successfully by userId:656842d02b33ab9db9e8e66b on postId:65686bd977454a9dfe8080c6.\"\n}"
+						},
+						{
+							"name": "invalid-user-id-500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Captivating prose! Your words dance with brilliance, painting vivid landscapes of imagination. A literary masterpiece that resonates with timeless elegance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66c/post/65686bd977454a9dfe8080c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"656842d02b33ab9db9e8e66c",
+										"post",
+										"65686bd977454a9dfe8080c6"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-T5buw+uaLHnMv+xQ/01T6tXOx/U\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 15:51:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"656842d02b33ab9db9e8e66c or 65686bd977454a9dfe8080c6 is incorrect.Please try with valid ids.\"\n}"
+						},
+						{
+							"name": "invalid-post-id=500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Captivating prose! Your words dance with brilliance, painting vivid landscapes of imagination. A literary masterpiece that resonates with timeless elegance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66b/post/65686bd977454a9dfe8080c7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"656842d02b33ab9db9e8e66b",
+										"post",
+										"65686bd977454a9dfe8080c7"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "106"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6a-sNqK6BDajhr7yZOLgg1s5qm5nTQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 15:57:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"656842d02b33ab9db9e8e66b or 65686bd977454a9dfe8080c7 is incorrect.Please try with valid ids.\"\n}"
+						},
+						{
+							"name": "invalid-ids-type-500",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Captivating prose! Your words dance with brilliance, painting vivid landscapes of imagination. A literary masterpiece that resonates with timeless elegance.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/user/invalid-user-id/post/invalid-post-id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"invalid-user-id",
+										"post",
+										"invalid-post-id"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oekfIhcmMRg4rsKnu01XO8xGUBI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 15:58:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"input must be a 24 character hex string, 12 byte Uint8Array, or an integer\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update-comment-by-user-on-post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentMsg\" : \"Spellbinding! Your post casts a mesmerizing spell, weaving enchantment with each word. A literary masterpiece that resonates with timeless elegance and profound meaning.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comments/update/user/656842d02b33ab9db9e8e66b/post/65686bd977454a9dfe8080c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"update",
+								"user",
+								"656842d02b33ab9db9e8e66b",
+								"post",
+								"65686bd977454a9dfe8080c7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update-commentMsg-on-existing-comment-200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Spellbinding! Your post casts a mesmerizing spell, weaving enchantment with each word. A literary masterpiece that resonates with timeless elegance and profound meaning.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/update/user/656842d02b33ab9db9e8e66b/post/65686bd977454a9dfe8080c6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"update",
+										"user",
+										"656842d02b33ab9db9e8e66b",
+										"post",
+										"65686bd977454a9dfe8080c6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-+kXeesnzQFVCh1hhK7E0q1EwXyM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 16:30:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "\"comment updated successfully\""
+						},
+						{
+							"name": "comment-not-found-404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentMsg\": \"Spellbinding! Your post casts a mesmerizing spell, weaving enchantment with each word. A literary masterpiece that resonates with timeless elegance and profound meaning.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/comments/update/user/656842d02b33ab9db9e8e66b/post/65686bd977454a9dfe8080c8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"update",
+										"user",
+										"656842d02b33ab9db9e8e66b",
+										"post",
+										"65686bd977454a9dfe8080c8"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-oCgKb9a3dQR0XGRhKM69JaM3tG0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 16:33:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"no comment made by user:656842d02b33ab9db9e8e66b on post:65686bd977454a9dfe8080c8\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-comment-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/6568af011feb757402119ee4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"6568af011feb757402119ee4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-comment-by-id-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/6568af011feb757402119ee4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6568af011feb757402119ee4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-hpYdZm8ZqGgMkU6upT3Wg/HHxIo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:13:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6568af011feb757402119ee4\",\n    \"commentMsg\": \"Spellbinding! Your post casts a mesmerizing spell, weaving enchantment with each word. A literary masterpiece that resonates with timeless elegance and profound meaning.\",\n    \"userId\": \"656842d02b33ab9db9e8e66b\",\n    \"postId\": \"65686bd977454a9dfe8080c6\",\n    \"createdAt\": \"2023-11-30T15:49:21.164Z\",\n    \"updatedAt\": \"2023-11-30T16:30:26.644Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "comment-not-found-404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/6568af011feb757402119ee2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6568af011feb757402119ee2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-lfYxzeDYyl4kGog0koC76u2F65M\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:14:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Comment:6568af011feb757402119ee2 not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-comments",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "get-all-commets-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44d-HcNtCpZWgJhJttiBIXAwXTD2jcI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:21:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6568af011feb757402119ee4\",\n        \"commentMsg\": \"Spellbinding! Your post casts a mesmerizing spell, weaving enchantment with each word. A literary masterpiece that resonates with timeless elegance and profound meaning.\",\n        \"userId\": \"656842d02b33ab9db9e8e66b\",\n        \"postId\": \"65686bd977454a9dfe8080c6\",\n        \"createdAt\": \"2023-11-30T15:49:21.164Z\",\n        \"updatedAt\": \"2023-11-30T16:30:26.644Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6568af8a1feb757402119ee8\",\n        \"commentMsg\": \"Captivating prose! Your words dance with brilliance, painting vivid landscapes of imagination. A literary masterpiece that resonates with timeless elegance.\",\n        \"userId\": \"656842d02b33ab9db9e8e66c\",\n        \"postId\": \"65686bd977454a9dfe8080c6\",\n        \"createdAt\": \"2023-11-30T15:51:38.960Z\",\n        \"updatedAt\": \"2023-11-30T15:51:38.960Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6568c45ab38ace509995335e\",\n        \"commentMsg\": \"Your poetic prose unfolds a sunrise symphony, painting hope on the city's canvas. A masterpiece that captures the ethereal beauty of dawn's embrace.\",\n        \"userId\": \"656842e62b33ab9db9e8e66d\",\n        \"postId\": \"65686be677454a9dfe8080c8\",\n        \"createdAt\": \"2023-11-30T17:20:26.527Z\",\n        \"updatedAt\": \"2023-11-30T17:20:26.527Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get-all-comments-by-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"user",
+								"656842d02b33ab9db9e8e66b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200-response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/user/656842e62b33ab9db9e8e66d",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"656842e62b33ab9db9e8e66d"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "358"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"166-Zb+FjozzAbyTtglS3PM8qK7cqW8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:45:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6568c45ab38ace509995335e\",\n        \"commentMsg\": \"Your poetic prose unfolds a sunrise symphony, painting hope on the city's canvas. A masterpiece that captures the ethereal beauty of dawn's embrace.\",\n        \"userId\": \"656842e62b33ab9db9e8e66d\",\n        \"postId\": \"65686be677454a9dfe8080c8\",\n        \"createdAt\": \"2023-11-30T17:20:26.527Z\",\n        \"updatedAt\": \"2023-11-30T17:20:26.527Z\",\n        \"__v\": 0\n    }\n]"
+						},
+						{
+							"name": "user-not-found-404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/user/656842d02b33ab9db9e8e66c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"user",
+										"656842d02b33ab9db9e8e66c"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"37-zQDv5Sqtka0mX477XAnAMGwyS1c\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:48:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user : 656842d02b33ab9db9e8e66c not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-by-comment-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/6568af8a1feb757402119ee9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"6568af8a1feb757402119ee9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-success-200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/6568af8a1feb757402119ee8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6568af8a1feb757402119ee8"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-MYdhfnRaonX7RXwOazgA+7yCnx0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 17:59:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Comment:6568af8a1feb757402119ee8 not found.\"\n}"
+						},
+						{
+							"name": "comment-not-found-404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/6568af8a1feb757402119ee9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"6568af8a1feb757402119ee9"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-iWRycl0HMx0SPnpLyntuEgHMboQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 18:00:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Comment:6568af8a1feb757402119ee9 not found.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-comments-on-post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comments/post/6568cfb8d5d411fd4dd1d7c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"post",
+								"6568cfb8d5d411fd4dd1d7c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success-scenario-200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/comments/post/6568cfb8d5d411fd4dd1d7c7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comments",
+										"post",
+										"6568cfb8d5d411fd4dd1d7c7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "685"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ad-80uY18uCYt1FJaBddMyD15+90QQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 30 Nov 2023 18:35:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6568d13bd5d411fd4dd1d7d2\",\n        \"commentMsg\": \"Your enchanting words illuminate a nocturnal masterpiece, echoing the poetry of nature. A celestial dance captured with grace and elegance.\",\n        \"userId\": \"656842d02b33ab9db9e8e66b\",\n        \"postId\": \"6568cfb8d5d411fd4dd1d7c7\",\n        \"createdAt\": \"2023-11-30T18:15:23.443Z\",\n        \"updatedAt\": \"2023-11-30T18:15:23.443Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6568d17ed5d411fd4dd1d7d6\",\n        \"commentMsg\": \"In the poetic tapestry of your words, the night sky becomes a timeless canvas. A symphony of beauty echoing through the cosmos.\",\n        \"userId\": \"656842e62b33ab9db9e8e66d\",\n        \"postId\": \"6568cfb8d5d411fd4dd1d7c7\",\n        \"createdAt\": \"2023-11-30T18:16:30.471Z\",\n        \"updatedAt\": \"2023-11-30T18:16:30.471Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
